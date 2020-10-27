@@ -1,0 +1,11 @@
+[submodule "embedders/X2Face"]
+	path = embedders/X2Face
+	url = https://github.com/shrubb/X2Face.git
+	branch = py37_pytorch_0.4.1
+[submodule "embedders/FAb-Net"]
+	path = embedders/FAb-Net
+	url = https://github.com/oawiles/FAb-Net.git
+[submodule "utils/Graphonomy"]
+	path = utils/Graphonomy
+	url = https://github.com/shrubb/Graphonomy.git
+	branch = voxceleb21
