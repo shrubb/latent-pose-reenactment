@@ -1,0 +1,34 @@
+finetune: true
+
+optimizer: RAdam
+lr_gen: 5e-4
+lr_dis: 8e-4
+
+criterions: adversarial, featmat, idt_embed, perceptual, dice #, dis_embed
+
+img_dir: "images-cropped"
+kp_dir: "keypoints-cropped"
+segm_dir: "segmentation-cropped"
+
+bboxes_dir: "/non/existent/file" # assume images are already cropped
+
+# dataloader is now a bit slow, and will be faster after
+# https://github.com/pytorch/pytorch/issues/15849 is implemented
+num_gpus: 1
+num_workers: 1
+
+log_frequency_images: 9999999
+log_frequency_fixed_images: 15
+# Which images to visualize in tensorboard. The indices must not exceed dataset size.
+fixed_val_ids: [0]
+
+# Need about 560 iterations; calculate `num_epochs` by yourself.
+# For example, when fine-tuning to 32 images with batch size 7, set `num_epochs` to 140.
+num_epochs: 140
+save_frequency: 0 # save only once, at the end
+
+# Also, don't forget to set these:
+
+# checkpoint_path: "experiments/MobileNetV2_ResNeXt_7xVGGLossWeight_256_bboxes/checkpoints/model_01825438.pth"
+# data_root: "/Vol0/user/e.burkov/Shared/Identity sources/"
+# train_split_path: "monalisa/"

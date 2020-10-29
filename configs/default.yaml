@@ -1,0 +1,34 @@
+generator: vector_pose_unsupervised_segmentation_noBottleneck
+embedder: unsupervised_pose_separate_embResNeXt_segmentation
+discriminator: no_landmarks
+criterions: idt_embed, perceptual, adversarial, featmat, dis_embed, dice
+dataloader: voxceleb2_segmentation_nolandmarks
+runner: holycow
+
+train_split_path : "./data/splits/train.csv"
+val_split_path : "./data/splits/val.csv"
+
+img_dir: 'cropped_fix'
+kp_dir: 'cropped_landmarks_fix'
+segm_dir: 'segmentation_Graphonomy'
+
+experiments_dir: "experiments/"
+data_root: "/datasets/VoxCeleb2"
+bboxes_dir: "/non/existent/file"
+
+num_gpus: 2
+batch_size: 8
+num_workers: 4
+prefetch_size: 16
+
+perc_weight: 3e-2
+idt_embed_weight: 0.6e-2
+
+pose_embedding_size: 256
+
+log_frequency_images: 500
+log_frequency_fixed_images: 2500
+
+use_pixelwise_augs : True
+use_affine_scale: True
+use_affine_shift: True
