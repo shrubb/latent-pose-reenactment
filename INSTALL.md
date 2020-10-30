@@ -43,5 +43,5 @@ pip3 install git+https://github.com/dniku/insightface.git@763060b2
 ## Repository
 
 1. `git submodule update --init`
-1. [Download](https://drive.google.com/file/d/1sWJ54lCBFnzCNz5RTCGQmkVovkY9x8_D/view) [Graphonomy](https://github.com/Gaoyiminggithub/Graphonomy)'s `'universal_trained.pth'` and put it to `'utils/Graphonomy/data/model'`.
-1. [Download](https://drive.google.com/drive/folders/1el_n1nSkxTpYO2yhAW4mseelFrlpn0Vh?usp=sharing) the two VGG weight files for perceptual losses and put them to `'criterions/common/'`.
+1. [Download](https://drive.google.com/file/d/1YDZRDnrPdJYvyRhe_Ir-91OFR_TCwvgO/view?usp=sharing) the background segmentation model's checkpoint and put it to `'utils/Graphonomy/data/model'`.
+1. Download the two VGG weight files ([first](https://drive.google.com/file/d/1o7s95QCrhRGyomuJDp5uGF1rhFSrbBN9/view?usp=sharing), [second](https://drive.google.com/file/d/1_ia1zRNZbfozBLVy-iOxYxdWRhtGhmZ2/view?usp=sharing])) for perceptual losses and put them to `'criterions/common/'`.
