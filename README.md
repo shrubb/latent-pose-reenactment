@@ -17,13 +17,12 @@ Set up your environment as described [here](INSTALL.md).
 * Collect images of the person to reenact.
 * Run [`utils/preprocess_dataset.sh`](utils/preprocess_dataset.sh) to preprocess them. Read inside for instructions.
 * Download the meta-model [checkpoint](https://drive.google.com/file/d/1QIVDRgtc_Fkaz9M4kewLU-TAFwJm7fvT/view?usp=sharing).
-* Run the below to fine-tune the meta-model to your person, first setting the top variables. If you want, also launch a TensorBoard at `"$OUTPUT_PATH"` to view progress.
+* Run the below to fine-tune the meta-model to your person, first setting the top variables. If you want, also launch a TensorBoard at `"$OUTPUT_PATH"` to view progress, preferably with the [`--samples_per_plugin "scalars=1000,images=100"`](https://stackoverflow.com/questions/57669234/how-to-display-more-than-10-images-in-tensorboard) option; mainly check the "images" tab to find out at which iteration the identity gap becomes small enough.
 
 ```bash
 # in this example, your images should be "$DATASET_ROOT/images-cropped/$IDENTITY_NAME/*.jpg"
 DATASET_ROOT="/where/is/your/data"
 IDENTITY_NAME="identity/name"
-NUM_IMAGES=5                 # number of your images
 MAX_BATCH_SIZE=8             # pick the largest possible, start with 8 and decrease until it fits in VRAM
 CHECKPOINT_PATH="/where/is/checkpoint.pth"
 OUTPUT_PATH="outputs/"       # a directory for outputs, will be created
@@ -33,6 +32,7 @@ RUN_NAME="tony_hawk_take_1"  # give your run a name if you want
 TARGET_NUM_ITERATIONS=230
 
 # Don't change these
+NUM_IMAGES=`ls -1 "$DATASET_ROOT/images-cropped/$IDENTITY_NAME" | wc -l`
 BATCH_SIZE=$((NUM_IMAGES<MAX_BATCH_SIZE ? NUM_IMAGES : MAX_BATCH_SIZE))
 ITERATIONS_IN_EPOCH=$(( NUM_IMAGES / BATCH_SIZE ))
 
