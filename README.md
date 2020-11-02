@@ -49,7 +49,7 @@ python3 train.py \
     --experiment_name "$RUN_NAME"
 ```
 
-**Note**. `TARGET_NUM_ITERATIONS` is important, make sure to tune it. Pick too low, underfit and get an identity gap; pick too high, overfit and get poor mimics. I suggest that you start with **230 when `NUM_IMAGES=1`** and decrease with more images, say, to **125 when `NUM_IMAGES>30`**. But your concrete case may be different. If you have a lot of disk space, pass a flag to save checkpoints every so often (e.g. `--save_frequency 4` will save a checkpoint every `4 * NUM_IMAGES` iterations), then drive (see below how) each of them and thus find the iteration where the best tradeoff happens for your avatar.
+**Note**. `TARGET_NUM_ITERATIONS` is important, make sure to tune it. Pick too low, underfit and get an identity gap; pick too high, overfit and get poor mimics. I suggest that you start with **125 when `NUM_IMAGES=1`** and increase with more images, say, to **230 when `NUM_IMAGES>30`**. But your concrete case may be different. If you have a lot of disk space, pass a flag to save checkpoints every so often (e.g. `--save_frequency 4` will save a checkpoint every `4 * NUM_IMAGES` iterations), then drive (see below how) each of them and thus find the iteration where the best tradeoff happens for your avatar.
 
 * Take your driving video and crop it with `python3 utils/crop_as_in_dataset.py`. Run with `--help` to learn how. Or, equivalently, just reuse [`utils/preprocess_dataset.sh`](utils/preprocess_dataset.sh) with `COMPUTE_SEGMENTATION=false`.
 * Organize the cropped images from the previous step as `"<data_root>/images-cropped/<images_path>/*.jpg"`.
