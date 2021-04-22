@@ -225,8 +225,8 @@ class LatentPoseFaceCropper(FaceCropper):
             return:
                 numpy.ndarray, np.uint8, `self.output_size` x 3 (e.g. 256 x 256 x 3), RGB
                     cropped image
-                numpy.ndarray, np.float32, 68 x 3
-                    cropped 3D facial landmark coordinates (x, y, z)
+                numpy.ndarray, (np.float32, 68 x 3) or None
+                    if `compute_landmarks` was `True`: cropped 3D facial landmark coordinates (x, y, z)
         """
         if bbox is None:
             bboxes = self.detect_faces([image])[0]
@@ -278,7 +278,7 @@ class LatentPoseFaceCropper(FaceCropper):
         image_cropped = cv2.resize(image_cropped, self.output_size,
             interpolation=cv2.INTER_CUBIC if self.output_size[1] > bbox[3] - bbox[1] else cv2.INTER_AREA)
 
-        return image_cropped, landmarks
+        return image_cropped, landmarks if compute_landmarks else None
 
     def detect_faces(self, images):
         """
