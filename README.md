@@ -16,7 +16,7 @@ Set up your environment as described [here](INSTALL.md).
 
 * Collect images of the person to reenact.
 * Run [`utils/preprocess_dataset.sh`](utils/preprocess_dataset.sh) to preprocess them. Read inside for instructions.
-* Download the meta-model [checkpoint](https://drive.google.com/file/d/1QIVDRgtc_Fkaz9M4kewLU-TAFwJm7fvT/view?usp=sharing).
+* Download the meta-model [checkpoint](https://drive.google.com/file/d/14-FYaz6YhTX5M_P3-rm2ITcxGljmWl-F/view?usp=share_link).
 * Run the below to fine-tune the meta-model to your person, first setting the top variables. If you want, also launch a TensorBoard at `"$OUTPUT_PATH"` to view progress, preferably with the [`--samples_per_plugin "scalars=1000,images=100"`](https://stackoverflow.com/questions/57669234/how-to-display-more-than-10-images-in-tensorboard) option; mainly check the "images" tab to find out at which iteration the identity gap becomes small enough.
 
 ```bash
