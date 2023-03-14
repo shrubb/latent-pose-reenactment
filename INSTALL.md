@@ -10,6 +10,7 @@ pip3 install \
     torch==1.5.1 \
     torchvision==0.6.1
 
+# This is my FULL environment, so likely not all these packages are actually required
 pip3 install \
     tensorboard==2.2.2 \
     pandas==1.0.5 \
