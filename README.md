@@ -4,7 +4,7 @@
 
 Burkov, E., Pasechnik, I., Grigorev, A., & Lempitsky V. (2020, June). **Neural Head Reenactment with Latent Pose Descriptors**. *IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*.
 
-See the [project page](https://saic-violet.github.io/latent-pose-reenactment/) for an overview.
+See the [project page](https://shrubb.github.io/research/latent-pose-reenactment/) for an overview.
 
 ## Prerequisites
 
